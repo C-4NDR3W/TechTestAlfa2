@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">TechTestAlfa2</string>
+    <string name="contacts">Contacts</string>
+    <!-- Login -->
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="loginButton">Login</string>
 
+    <!-- Students List -->
     <string name="studentHeader">Students</string>
+    <string name="profileDesc">profile</string>
 </resources>

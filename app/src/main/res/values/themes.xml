@@ -2,7 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.TechTestAlfa2" parent="Theme.MaterialComponents.Light.NoActionBar">\
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/blue</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="android:windowBackground">@color/lace</item>
+        <item name="android:navigationBarColor">@color/lace</item>
     </style>
 
     <style name="Theme.TechTestAlfa2" parent="Base.Theme.TechTestAlfa2" />

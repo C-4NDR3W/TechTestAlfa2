@@ -1,6 +1,5 @@
 package com.example.techtestalfa2
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 
 class StudentAdapter(private val itemList: List<Student>) : RecyclerView.Adapter<StudentAdapter.ItemViewHolder>() {
 
@@ -29,6 +29,7 @@ class StudentAdapter(private val itemList: List<Student>) : RecyclerView.Adapter
         holder.address.text = student.address
         Glide.with(holder.itemView.context)
             .load(student.profilePictureURL)
+            .transform(CircleCrop())
             .into(holder.profileImage)
     }
 
