@@ -1,20 +1,48 @@
 package com.example.techtestalfa2
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var studentAdapter: StudentAdapter
+    private val studentList = mutableListOf<Student>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        recyclerView = findViewById(R.id.recyclerViewStudent)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        studentAdapter = StudentAdapter(studentList)
+        recyclerView.adapter = studentAdapter
+
+        fetchDataFromFirebase()
+    }
+
+    private fun fetchDataFromFirebase() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("students")
+            .get()
+            .addOnSuccessListener { documents ->
+                studentList.clear()
+                for (document in documents) {
+                    val student = document.toObject(Student::class.java)
+                    studentList.add(student)
+                }
+                studentAdapter = StudentAdapter(studentList)
+                recyclerView.adapter = studentAdapter
+            }
+            .addOnFailureListener { exception ->
+                Log.e("Firestore Error", exception.message.toString())
+            }
     }
 }
