@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">TechTestAlfa2</string>
-    <string name="contacts">Contacts</string>
+    <string name="app_name">Students</string>
     <!-- Login -->
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
