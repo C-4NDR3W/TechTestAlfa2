@@ -14,10 +14,10 @@ class MainActivity : AppCompatActivity() {
     private val studentList = mutableListOf<Student>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         recyclerView = findViewById(R.id.recyclerViewStudent)
         recyclerView.layoutManager = LinearLayoutManager(this)
