@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "387472582608",
+    "project_id": "union-52981",
+    "storage_bucket": "union-52981.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387472582608:android:512ef2e549045cbc94fbd5",
+        "android_client_info": {
+          "package_name": "com.example.techtestalfa2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo8F89LOYojUNGxRdXniDmpS0NYB5a814"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
